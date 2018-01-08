@@ -1,4 +1,4 @@
-# Solar Turbines Data Analysis
+# Anomaly Detection in Machine Data
 
 Group Members: Jillian Jarrett, Orysya Stus, Michael Galarnyk, Jared Goldsmith, Garrett Cheung
 Advisors: Yoav Freund, Chad Holcomb
