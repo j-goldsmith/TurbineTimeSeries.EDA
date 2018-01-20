@@ -30,12 +30,13 @@ class SqlImport:
 
     def _csv_to_df(self, file_path):
         psn = self._psn_from_file_path(file_path)
-        df = pd.read_csv(file_path)
+        df = pd.read_csv(file_path, quotechar='"', quoting=3)
 
         df['PSN'] = psn
         df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'])
 
         df.reset_index(drop=True, inplace=True)
+        df.columns = [x.lower() for x in df.columns]
         return df
 
     def _drop_table(self,table_name):
