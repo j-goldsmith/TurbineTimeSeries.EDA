@@ -2,7 +2,8 @@
 
 # Current postgresql instance
 postgres_connection_url, postgresql://jill:teddybear1234@ec2-54-234-254-201.compute-1.amazonaws.com/capstone
--- need to get performance wise.
+<br>
+Need to check performance wise
 
 # Cool resources
 https://glowingpython.blogspot.com/2011/08/how-to-plot-frequency-spectrum-with.html
