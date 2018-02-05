@@ -14,7 +14,7 @@ Data Type | Instance Type | Connection String
 1 Hour Data  | t2.xlarge | postgresql://jill:teddybear1234@ec2-54-173-59-124.compute-1.amazonaws.com/capstone
 
 Database | Username
---- | --- | ---
+--- | ---
 1 Hour Data  | jill 
 1 Hour Data  | orysya
 1 Hour Data  | garrett 
@@ -22,4 +22,4 @@ Database | Username
 1 Hour Data  | yoav 
 1 Hour Data  | michael
 
-** All usernames have the same password for now **
+**All usernames have the same password for now**
