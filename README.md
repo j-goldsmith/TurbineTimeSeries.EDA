@@ -7,6 +7,7 @@ Location | Link
 Data Type | Location
 --- | --- 
 1 Hour Data  | https://drive.google.com/open?id=1rxWP6_8Lzaryy1f2KC3DmrC5RZxDH83x
+10 Minute Data | https://drive.google.com/open?id=1_4_qF_uqWIUcDL-Lo6i5U0zfiuKAbMfA
 
 # Current PostgreSQL Instance(s)
 Data Type | Instance Type | Connection String
