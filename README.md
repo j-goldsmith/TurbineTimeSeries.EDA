@@ -1,11 +1,25 @@
-# AnomalyDetectionMachineData
+# Live Notebook(s)
+Location | Link
+--- | --- 
+1 Hour Data Analysis | https://drive.google.com/file/d/1OktYyzStxmuxJuB7R7247QwafKQlT3f_/view?usp=sharing
 
-# Current postgresql instance
-postgres_connection_url, postgresql://jill:teddybear1234@ec2-54-234-254-201.compute-1.amazonaws.com/capstone
-<br>
-Need to check performance wise
+# Current Data Files
+Data Type | Location
+--- | --- 
+1 Hour Data  | https://drive.google.com/open?id=1rxWP6_8Lzaryy1f2KC3DmrC5RZxDH83x
 
-# Cool resources
-https://glowingpython.blogspot.com/2011/08/how-to-plot-frequency-spectrum-with.html
+# Current PostgreSQL Instance(s)
+Data Type | Instance Type | Connection String
+--- | --- | ---
+1 Hour Data  | t2.xlarge | postgresql://jill:teddybear1234@ec2-54-173-59-124.compute-1.amazonaws.com/capstone
 
- http://iopscience.iop.org/article/10.1088/1361-6501/aa52ed/pdf
+Database | Username
+--- | --- | ---
+1 Hour Data  | jill 
+1 Hour Data  | orysya
+1 Hour Data  | garrett 
+1 Hour Data  | jared
+1 Hour Data  | yoav 
+1 Hour Data  | michael
+
+** All usernames have the same password for now **
