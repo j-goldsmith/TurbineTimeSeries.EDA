@@ -83,5 +83,8 @@ if __name__ == "__main__":
 
     importer = SqlImport(config_path)
 
-    importer.import_csvs(data_dir + '/Model 1', "Sensor_Readings_Model1_Hourly")
-    importer.import_csvs(data_dir + '/Model 2', "Sensor_Readings_Model2_Hourly")
+    importer.import_csvs(data_dir + '/1hr/Model 1', "Sensor_Readings_Model1_1hr")
+    importer.import_csvs(data_dir + '/1hr/Model 2', "Sensor_Readings_Model2_1hr")
+    
+    importer.import_csvs(data_dir + '/10min/Model 1', "Sensor_Readings_Model1_10min")
+    importer.import_csvs(data_dir + '/10min/Model 2', "Sensor_Readings_Model2_10min")
