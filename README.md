@@ -1,6 +1,4 @@
 # Data Dictionary
-Location | Link
---- | ---
 https://drive.google.com/open?id=1fhQj3VD0hvW81I9kGn8-1YCDL24VfZCK
 
 # Live Notebook(s)
