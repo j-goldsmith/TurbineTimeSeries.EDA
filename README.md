@@ -27,3 +27,6 @@ Database | Username
 1 Hour Data  | michael
 
 **All usernames have the same password for now**
+
+## Other Repo
+[Pipeline](https://github.com/j-goldsmith/TurbineTimeSeries)
