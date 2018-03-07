@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coefficients By PSN and Time</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter2/1.4.5/crossfilter.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script type="application/javascript" src="explorer.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="explorer">
+    <div class="title container-fluid">
+        <div class="row">
+            <div class="col">
+                <h4>Package Serial Number</h4>
+                <select class="psn form-control"></select>
+            </div>
+            <div class="col">
+                <h4>Raw Measure</h4>
+                <select class="raw form-control"></select>
+            </div>
+            <div class="col">
+                <h4>X Axis Eigenvector</h4>
+                <select class="eigX form-control"></select>
+            </div>
+            <div class="col">
+                <h4>Y Axis Eigenvector</h4>
+                <select class="eigY form-control"></select>
+            </div>
+        </div>
+    </div>
+    <svg class="plots">
+        <svg class="timeline">
+            <rect class="selected-range"></rect>
+            <g class="timeline-entries"></g>
+            <path class="timeline-path"></path>
+            <rect class="timeline-hover"></rect>
+        </svg>
+        <svg class="scatterplot">
+            <rect class="selected-range"></rect>
+            <g></g>
+            <rect class="scatter-hover"></rect>
+        </svg>
+    </svg>
+</div>
+
+<script type="application/javascript">
+    d3.queue()
+        .defer(d3.csv, "model1_joined_data.csv")
+        .await(init);
+
+    function init(error, data) {
+        if(error) { console.log(error); }
+
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 30;
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 30;
+        var explorer = coefficientExplorer.display()
+            .dimensions({width:w,height:h});
+
+
+        d3.select(".explorer")
+            .datum(data)
+            .call(explorer);
+    }
+</script>
+
+</body>
+</html>
