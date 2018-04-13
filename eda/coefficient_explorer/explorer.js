@@ -256,7 +256,31 @@ coefficientExplorer.scatterPlot = function(){
     var filters = {};
     var scales = {
         xScale: d3.scaleLinear(),
-        yScale: d3.scaleLinear()
+        yScale: d3.scaleLinear(),
+        timeColor: d3.scaleQuantize().domain([1,366]).range([
+            '#543005',
+            '#8c510a',
+            '#bf812d',
+            '#dfc27d',
+            '#f6e8c3',
+            '#c7eae5'
+            //'#f5f5f5'
+            /*'#c7eae5',
+            '#80cdc1',
+            '#35978f',
+            '#01665e',
+            '#003c30',
+            '#01665e',
+            '#35978f',
+            '#80cdc1',
+            '#c7eae5',
+            '#f5f5f5',
+            '#f6e8c3',
+            '#dfc27d',
+            '#bf812d',
+            '#8c510a',
+            '#543005'*/
+        ])
     };
     var dragCoords = {xStart:0,yStart:0,xEnd:0, yEnd:0};
 
@@ -380,7 +404,12 @@ coefficientExplorer.scatterPlot = function(){
             .attr('transform','translate(5 1)')
             .call(drag_behavior);
 
-        var i = g.selectAll('circle.reduced-entry-inactive').attr('fill','lightgrey')
+        var i = g.selectAll('circle.reduced-entry-inactive') .attr('fill',function(d,i){
+            var hour = moment(d['timestamp']).dayOfYear();
+            var scaled = scales.timeColor(hour);
+            var i =0;
+            return scaled;
+        })
             .attr('r',4)
             .data(filteredData);
 
@@ -389,7 +418,12 @@ coefficientExplorer.scatterPlot = function(){
             .attr('class','reduced-entry-inactive')
             .attr('r',4)
             .attr('fill-opacity',.4)
-            .attr('fill','lightgrey')
+            .attr('fill',function(d,i){
+                var hour = moment(d['timestamp']).dayOfYear();
+                var scaled = scales.timeColor(hour);
+                var i =0;
+                return scaled;
+            })
             .attr('stroke-width',0)
             .merge(i)
             .attr('cx', function(d,i){ return scales.xScale(parseFloat(d[filters.eigX]));})
@@ -454,7 +488,7 @@ coefficientExplorer.scatterPlot = function(){
             .attr("stroke-dasharray", function(d){ return this.getTotalLength() })
             .attr("stroke-dashoffset", function(d){ return this.getTotalLength() })
             .transition(d3.transition()
-                .duration(3000)
+                .duration(15000)
                 .ease(d3.easeLinear))
             .attr("stroke-dashoffset", 0);
 
