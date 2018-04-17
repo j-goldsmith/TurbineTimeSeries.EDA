@@ -115,7 +115,7 @@ coefficientExplorer.timeline = function(){
         }
 
         var plotSpacing = (dimensions.width) / transformedData.length;
-
+        console.log(filters.rawDataField);
         scales.rawDataValue.domain(d3.extent(transformedData,function(d){return d[filters.rawDataField]}));
         scales.rawDataValue.range([dimensions.height-10, 10]);
 
@@ -257,14 +257,21 @@ coefficientExplorer.scatterPlot = function(){
     var scales = {
         xScale: d3.scaleLinear(),
         yScale: d3.scaleLinear(),
-        timeColor: d3.scaleQuantize().domain([1,366]).range([
-            '#543005',
+        timeColor: d3.scaleQuantize().domain([0,6]).range([
+            '#8dd3c7',
+            '#ffffb3',
+            '#bebada',
+            '#fb8072',
+            '#80b1d3',
+            '#fdb462',
+            '#b3de69'
+            /*'#543005',
             '#8c510a',
             '#bf812d',
             '#dfc27d',
             '#f6e8c3',
             '#c7eae5'
-            //'#f5f5f5'
+            //'#f5f5f5'*/
             /*'#c7eae5',
             '#80cdc1',
             '#35978f',
@@ -405,7 +412,7 @@ coefficientExplorer.scatterPlot = function(){
             .call(drag_behavior);
 
         var i = g.selectAll('circle.reduced-entry-inactive') .attr('fill',function(d,i){
-            var hour = moment(d['timestamp']).dayOfYear();
+            var hour = moment(d['timestamp']).day();
             var scaled = scales.timeColor(hour);
             var i =0;
             return scaled;
@@ -419,7 +426,7 @@ coefficientExplorer.scatterPlot = function(){
             .attr('r',4)
             .attr('fill-opacity',.4)
             .attr('fill',function(d,i){
-                var hour = moment(d['timestamp']).dayOfYear();
+                var hour = moment(d['timestamp']).day();
                 var scaled = scales.timeColor(hour);
                 var i =0;
                 return scaled;
@@ -677,6 +684,79 @@ coefficientExplorer.display = function(){
         selectedIndices:[],
         selectedReduced:[],
         rawDataFieldOptions:[
+            "pe_cmd1",
+            "f_cmd2",
+            "f_cmd1",
+            "lo_c_dp1",
+            "f_c_dp1",
+            "f_c_dp2",
+            "f_c_dp5",
+            "pe_c_dt1",
+            "g_c_dt1",
+            "g_c_dt2",
+            "lo_c_dt5",
+            "c_dt5_1",
+            "c_dt5_2",
+            "c_dt5_3",
+            "c_dt5_4",
+            "c_dt5_5",
+            "c_dt5_6",
+            "lo_c_brg1",
+            "pe_c_pos_e1",
+            "f_c_pos_e2",
+            "f_c_pos_e1",
+            "c_c_t5_1",
+            "c_c_t5_2",
+            "c_c_t5_3",
+            "g_cur1",
+            "g_cur2",
+            "g_cur3",
+            "g_cur4",
+            "lo_dp1",
+            "sum_enr",
+            "sum_eng_h",
+            "sum_eng_st",
+            "pe_for1",
+            "ngp",
+            "nt5",
+            "pcd",
+            "g_pct1",
+            "pe_pos1",
+            "f_pos1",
+            "perf_pow",
+            "g_pow1",
+            "pe_p1",
+            "b_p1",
+            "f_p1",
+            "f_p2",
+            "lo_p1",
+            "f_p7",
+            "t1_1",
+            "t5_1",
+            "t5_2",
+            "t5_3",
+            "t5_4",
+            "t5_5",
+            "t5_6",
+            "t5_a",
+            "t5_s1",
+            "pe_t1",
+            "f_t1",
+            "g_t1",
+            "g_t2",
+            "g_t3",
+            "g_t4",
+            "g_t5",
+            "lo_t5",
+            "lo_t6",
+            "lo_t9",
+            "v_acc1",
+            "v_d_1b",
+            "v_d_2b",
+            "v_d_3b"
+
+        ],
+        rawDataFieldOptions_model1:[
             "c_c_dp1",
             "c_c_t5_1",
             "c_c_t5_2",
